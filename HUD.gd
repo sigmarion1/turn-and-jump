@@ -13,3 +13,7 @@ func _process(delta):
 func show_game_over():
 	$Message.text = "Congratulations!!"
 	
+
+func start_timer():
+	$Message.text = "Congratulations!!"
+	
