@@ -1,10 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvd2uhqlgvu"]
+[gd_scene load_steps=10 format=3 uid="uid://dvd2uhqlgvu"]
 
 [ext_resource type="Texture2D" uid="uid://cy420xlsylhmw" path="res://character.png" id="1_1g1jq"]
 [ext_resource type="Script" path="res://character.gd" id="1_7hn38"]
+[ext_resource type="Texture2D" uid="uid://cjka2ac5pj2jn" path="res://character_ouch.png" id="2_jvo4c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_82m0a"]
 size = Vector2(30, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jx6h"]
+atlas = ExtResource("2_jvo4c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eblbx"]
+atlas = ExtResource("2_jvo4c")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u3sti"]
 atlas = ExtResource("1_1g1jq")
@@ -16,6 +25,17 @@ region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_68w0n"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jx6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eblbx")
+}],
+"loop": true,
+"name": &"ouch",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u3sti")
@@ -39,3 +59,4 @@ shape = SubResource("RectangleShape2D_82m0a")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_68w0n")
 animation = &"walk"
+frame_progress = 0.830865
