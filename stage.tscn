@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://rbmxy5fbkl55"]
+[gd_scene load_steps=13 format=3 uid="uid://rbmxy5fbkl55"]
 
 [ext_resource type="PackedScene" uid="uid://dvd2uhqlgvu" path="res://character.tscn" id="1_bq7im"]
 [ext_resource type="Script" path="res://stage.gd" id="1_oh0si"]
 [ext_resource type="Script" path="res://HUD.gd" id="2_s6av1"]
 [ext_resource type="Texture2D" uid="uid://ddrvc1lbj2swl" path="res://tilesheet_complete.png" id="2_tlm8c"]
 [ext_resource type="FontFile" uid="uid://x7txmmfc28pd" path="res://ONE Mobile POP OTF.otf" id="3_sg3n5"]
+[ext_resource type="Script" path="res://MessageTimer.gd" id="4_g5ajq"]
+[ext_resource type="AudioStream" path="res://Chiptune Happy main.wav" id="7_etgww"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5s7ia"]
 font = ExtResource("3_sg3n5")
@@ -836,14 +838,12 @@ offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-text = "PRESS SPACEBAR 
-TO TURN AND JUMP"
 label_settings = SubResource("LabelSettings_5s7ia")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MessageTimer" type="Timer" parent="HUD"]
-wait_time = 3.0
+script = ExtResource("4_g5ajq")
 
 [node name="TimerText" type="Label" parent="HUD"]
 anchors_preset = 5
@@ -856,6 +856,8 @@ grow_horizontal = 2
 size_flags_horizontal = 4
 text = "00:00"
 label_settings = SubResource("LabelSettings_ulefm")
+
+[node name="Timer" type="Timer" parent="HUD"]
 
 [node name="Character" parent="." instance=ExtResource("1_bq7im")]
 position = Vector2(-36, -172)
@@ -874,4 +876,11 @@ layer_0/tile_data = PackedInt32Array(-1048564, 131072, 3, -524292, 131072, 3, -1
 position = Vector2(-35.5, -6047.75)
 shape = SubResource("RectangleShape2D_2vipp")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_etgww")
+
+[connection signal="counted_down" from="HUD/MessageTimer" to="HUD" method="_on_message_timer_counted_down"]
+[connection signal="game_timer_start" from="HUD/MessageTimer" to="Character" method="_on_message_timer_game_timer_start"]
+[connection signal="timeout" from="HUD/MessageTimer" to="HUD/MessageTimer" method="_on_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="HUD" method="_on_area_2d_body_entered"]

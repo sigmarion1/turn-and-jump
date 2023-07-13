@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var is_active = true
+@export var is_active = false
 @export var is_right = true
 @export var speed = 2000
 @export var jump_force = -2000
@@ -72,6 +72,10 @@ func get_input(delta):
 	
 func _physics_process(delta):
 	
+	if not is_active:
+		return
+	
+	
 	if is_right:
 		velocity.x += speed * delta
 	else:
@@ -115,4 +119,7 @@ func _physics_process(delta):
 #
 	
 
+
+func _on_message_timer_game_timer_start():
+	is_active = true
 
