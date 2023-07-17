@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://rbmxy5fbkl55"]
+[gd_scene load_steps=12 format=3 uid="uid://rbmxy5fbkl55"]
 
 [ext_resource type="PackedScene" uid="uid://dvd2uhqlgvu" path="res://character.tscn" id="1_bq7im"]
 [ext_resource type="Script" path="res://stage.gd" id="1_oh0si"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://ddrvc1lbj2swl" path="res://tilesheet_complete.png" id="2_tlm8c"]
 [ext_resource type="FontFile" uid="uid://x7txmmfc28pd" path="res://ONE Mobile POP OTF.otf" id="3_sg3n5"]
 [ext_resource type="Script" path="res://MessageTimer.gd" id="4_g5ajq"]
-[ext_resource type="AudioStream" path="res://Chiptune Happy main.wav" id="7_etgww"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5s7ia"]
 font = ExtResource("3_sg3n5")
@@ -877,7 +876,6 @@ position = Vector2(-35.5, -6047.75)
 shape = SubResource("RectangleShape2D_2vipp")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_etgww")
 
 [connection signal="counted_down" from="HUD/MessageTimer" to="HUD" method="_on_message_timer_counted_down"]
 [connection signal="game_timer_start" from="HUD/MessageTimer" to="Character" method="_on_message_timer_game_timer_start"]
