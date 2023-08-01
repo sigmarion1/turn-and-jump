@@ -3,21 +3,21 @@
 [ext_resource type="PackedScene" uid="uid://dvd2uhqlgvu" path="res://character.tscn" id="1_bq7im"]
 [ext_resource type="Script" path="res://stage.gd" id="1_oh0si"]
 [ext_resource type="Script" path="res://HUD.gd" id="2_s6av1"]
-[ext_resource type="Texture2D" uid="uid://ddrvc1lbj2swl" path="res://tilesheet_complete.png" id="2_tlm8c"]
-[ext_resource type="FontFile" uid="uid://x7txmmfc28pd" path="res://ONE Mobile POP OTF.otf" id="3_sg3n5"]
+[ext_resource type="FontFile" uid="uid://x7txmmfc28pd" path="res://Font/ONE Mobile POP OTF.otf" id="3_jau4g"]
 [ext_resource type="Script" path="res://MessageTimer.gd" id="4_g5ajq"]
+[ext_resource type="Texture2D" uid="uid://ddrvc1lbj2swl" path="res://Image/tilesheet_complete.png" id="5_nbcqg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5s7ia"]
-font = ExtResource("3_sg3n5")
+font = ExtResource("3_jau4g")
 font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_ulefm"]
-font = ExtResource("3_sg3n5")
+font = ExtResource("3_jau4g")
 font_size = 32
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x83bk"]
 resource_name = "terrain"
-texture = ExtResource("2_tlm8c")
+texture = ExtResource("5_nbcqg")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -226,7 +226,7 @@ texture_region_size = Vector2i(64, 64)
 2:3/0 = 0
 2:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:3/0/physics_layer_0/angular_velocity = 0.0
-2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, -32, 32, 32, -32, 32)
 3:3/0 = 0
 3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:3/0/physics_layer_0/angular_velocity = 0.0
@@ -837,6 +837,7 @@ offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+text = "."
 label_settings = SubResource("LabelSettings_5s7ia")
 horizontal_alignment = 1
 vertical_alignment = 1

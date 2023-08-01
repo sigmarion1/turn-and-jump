@@ -1,36 +1,78 @@
-[gd_scene load_steps=10 format=3 uid="uid://dvd2uhqlgvu"]
+[gd_scene load_steps=17 format=3 uid="uid://dvd2uhqlgvu"]
 
-[ext_resource type="Texture2D" uid="uid://cy420xlsylhmw" path="res://character.png" id="1_1g1jq"]
 [ext_resource type="Script" path="res://character.gd" id="1_7hn38"]
-[ext_resource type="Texture2D" uid="uid://cjka2ac5pj2jn" path="res://character_ouch.png" id="2_jvo4c"]
+[ext_resource type="Texture2D" uid="uid://bviqx53at3lyh" path="res://Image/zombie_tilesheet.png" id="2_31w5u"]
+[ext_resource type="Texture2D" uid="uid://cjka2ac5pj2jn" path="res://Image/character_ouch.png" id="2_nb5wl"]
+[ext_resource type="Texture2D" uid="uid://cy420xlsylhmw" path="res://Image/character.png" id="3_fdw45"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_82m0a"]
-size = Vector2(30, 50)
+size = Vector2(39, 73)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7jx6h"]
-atlas = ExtResource("2_jvo4c")
+[sub_resource type="AtlasTexture" id="AtlasTexture_un0nb"]
+atlas = ExtResource("2_31w5u")
+region = Rect2(0, 0, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pidyv"]
+atlas = ExtResource("2_31w5u")
+region = Rect2(0, 110, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcumq"]
+atlas = ExtResource("2_31w5u")
+region = Rect2(80, 110, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68gvb"]
+atlas = ExtResource("2_31w5u")
+region = Rect2(320, 0, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yhfe"]
+atlas = ExtResource("2_31w5u")
+region = Rect2(160, 0, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osvec"]
+atlas = ExtResource("2_31w5u")
+region = Rect2(80, 0, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxhw7"]
+atlas = ExtResource("2_nb5wl")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eblbx"]
-atlas = ExtResource("2_jvo4c")
+[sub_resource type="AtlasTexture" id="AtlasTexture_eep5h"]
+atlas = ExtResource("2_nb5wl")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u3sti"]
-atlas = ExtResource("1_1g1jq")
+[sub_resource type="AtlasTexture" id="AtlasTexture_87r8i"]
+atlas = ExtResource("3_fdw45")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s5x2g"]
-atlas = ExtResource("1_1g1jq")
+[sub_resource type="AtlasTexture" id="AtlasTexture_t40gc"]
+atlas = ExtResource("3_fdw45")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_68w0n"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7jx6h")
+"texture": SubResource("AtlasTexture_un0nb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eblbx")
+"texture": SubResource("AtlasTexture_pidyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcumq")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68gvb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yhfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osvec")
 }],
 "loop": true,
 "name": &"ouch",
@@ -38,10 +80,21 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u3sti")
+"texture": SubResource("AtlasTexture_hxhw7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s5x2g")
+"texture": SubResource("AtlasTexture_eep5h")
+}],
+"loop": true,
+"name": &"ouch_1_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87r8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t40gc")
 }],
 "loop": true,
 "name": &"walk",
@@ -52,11 +105,9 @@ animations = [{
 script = ExtResource("1_7hn38")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -0.5)
+position = Vector2(3.5, 14.5)
 shape = SubResource("RectangleShape2D_82m0a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_68w0n")
-animation = &"walk"
-frame_progress = 0.830865
+animation = &"ouch"

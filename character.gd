@@ -8,7 +8,6 @@ extends CharacterBody2D
 const GRAVITY = 3000
 
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimatedSprite2D.animation = "walk"
@@ -75,10 +74,9 @@ func _ready():
 
 	
 func _physics_process(delta):
-	
+
 	if not is_active:
 		return
-	
 	
 	if is_right:
 		velocity.x += speed * delta
@@ -92,10 +90,10 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
 	
-	if Input.is_action_pressed("jump") and is_on_floor():
+	if (Input.is_action_pressed("jump") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and is_on_floor():
 		velocity.y = jump_force
 		is_right = !is_right
-		$AnimatedSprite2D.animation = "walk"
+		$AnimatedSprite2D.animation = "new_animation"
 						
 
 	move_and_slide()
