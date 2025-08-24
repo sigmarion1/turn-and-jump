@@ -1,0 +1,22 @@
+# Godot project files (not needed for web server)
+*.gd
+*.tscn
+*.aseprite
+*.png.import
+*.wav.import
+*.otf.import
+*.svg.import
+project.godot
+*.uid
+
+# Git files
+.git
+.gitignore
+
+# Documentation
+README.md
+
+# Docker files
+Dockerfile
+.dockerignore
+docker-compose.yml

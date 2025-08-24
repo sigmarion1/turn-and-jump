@@ -1,14 +1,17 @@
-# Use Python 3.11 slim image as base
-FROM python:3.11-slim
+# Use nginx alpine image as base
+FROM nginx:alpine
 
-# Set working directory in container
-WORKDIR /app
+# Remove default nginx config
+RUN rm /etc/nginx/conf.d/default.conf
 
-# Copy the web directory contents to container
-COPY . .
+# Copy custom nginx configuration
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Copy web files to nginx html directory
+COPY . /usr/share/nginx/html/
 
 # Expose port 8000
 EXPOSE 8000
 
-# Run the server.py script
-CMD ["python", "server.py"]
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
